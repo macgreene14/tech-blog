@@ -4,26 +4,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog CSM</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Blog CMS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
 </head>
 
 <body>
-  <header>
-    <h1>Welcome to my Blog!</h1>
-  </header>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="https://freesvg.org/img/Blog-icon.png">
+       &nbsp Home
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/Dashboard">
+        Dashboard
+      </a>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/login">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light" href="./login">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- 
   <nav>
-    <a href="/Homepage">Homepage</a>
+    <a href="/">Homepage</a>
         <a href="/Dashboard">Dashboard</a>
             <a href="/Login">Login</a>
-
-
-  </nav>
+  </nav> --}}
   <main>
-    <aside>
-      <h2>Enjoy the Blog!</h2>
-    </aside>
     <div class="Blog">
       {{{body}}}
     </div>

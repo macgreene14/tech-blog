@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const uiRoutes = require("./ui");
+const homepageRoutes = require("./homepage-routes");
 const apiRoutes = require("./api");
 
 // route root resources to uiRoutes
-router.use("/", uiRoutes);
+router.use("/", homepageRoutes);
 
 // route request for information to apiRoutes
 router.use("/api", apiRoutes);

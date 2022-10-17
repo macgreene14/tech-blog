@@ -1,7 +1,7 @@
-<section><h1>This is my Homepage!</h1></section>
-
+<section><h1><strong>Blog Feed</strong></h1></section>
 <!-- For each blog, the blog-card partial is used to render the data -->
 {{#each blogs as |blog|}}
-{{blog.title}}
-{{blog.content}}
+    <a href="/blog/{{id}}">
+        {{>blog-card}}
+    </a>
 {{/each}}

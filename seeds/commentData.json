@@ -1,5 +1,12 @@
 [
     {
-        "content": "This is a blog comment! This blog is great!"
+        "content": "This is a blog comment! This blog is great!",
+        "user_id": 1,
+        "blog_id": 1
+    },
+    {
+        "content": "Adding another comment here!",
+        "user_id": 1,
+        "blog_id": 1
     }
 ]

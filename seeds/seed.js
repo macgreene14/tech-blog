@@ -14,11 +14,11 @@ const seedAll = async () => {
     await User.bulkCreate(userData);
     console.log("\n----- USER SEEDED -----\n");
 
-    await Comment.bulkCreate(commentData);
-    console.log("\n----- COMMENT SEEDED -----\n");
-
     await Blog.bulkCreate(blogData);
     console.log("\n----- BLOG SEEDED -----\n");
+
+    await Comment.bulkCreate(commentData);
+    console.log("\n----- COMMENT SEEDED -----\n");
   } catch (err) {
     console.log(err);
   }
