@@ -65,13 +65,13 @@ router.get("/dashboard", async (req, res) => {
     // if user is not logged in, redirect to login
     const loggedIn = req.session.loggedIn;
 
-    if (!loggedIn) {
-      res.status(200).redirect("/login");
-    }
-
     // obtain user_id from session entry to lookup blogs
     const user_id = req.session.user_id;
-    console.log("user id", user_id);
+
+    if (!loggedIn || !user_id) {
+      res.status(200).redirect("/login");
+      return;
+    }
 
     // query db for blogData
     const blogData = await Blog.findAll({
