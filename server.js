@@ -1,7 +1,11 @@
 const express = require("express");
 const sequelize = require("./config/connection");
 const controllers = require("./controllers");
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// require("dotenv").config(); //process.env.SESS_SECRET
 
+// require handlerbars.js
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 const path = require("path");
@@ -9,6 +13,19 @@ const path = require("path");
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// setup sessions with cookies
+const sess = {
+  secret: "secret",
+  cookie: { maxAge: 24 * 60 * 60 * 1000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
 
 // The following two lines of code are setting Handlebars.js as the default template engine.
 app.engine("handlebars", hbs.engine);

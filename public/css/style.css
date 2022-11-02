@@ -5,3 +5,8 @@
     margin: 1%;
 }
 
+.form-container {
+    max-width: 40%;
+    margin:auto;
+    margin-top: 10%;    
+}

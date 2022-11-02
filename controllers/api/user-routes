@@ -1,0 +1,83 @@
+const router = require("express").Router();
+const { Blog, User, Comment } = require("../../models");
+const bcrypt = require("bcrypt"); // for password hashing
+
+// POST handler for user login form
+router.post("/login", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    // save session, redirect to home
+    if (email && password) {
+      // validate user
+      const userData = await User.findOne({
+        where: { email: email },
+        // raw: true, // format query response as single JSON object
+      });
+      if (!userData) {
+        console.log("No User");
+        res.status(400).listenerCount({ message: "Username not found" });
+        return;
+      }
+
+      // validate password
+      const valPass = userData.checkPassword(password);
+      if (!valPass) {
+        console.log("No Password");
+        res.status(400).listenerCount({ message: "Password incorrect" });
+        return;
+      }
+
+      // if user & password valid, save logged in to session id
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.loggedIn = true;
+        res.status(301).redirect("/");
+      });
+    } else {
+      res.status(422).json({ messsage: "Please provide email and password!" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ messsage: "Error, please try again!" });
+  }
+});
+
+// POST user logout
+router.post("/logout", (req, res) => {
+  console.log("-----------------------------");
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+// POST new user signup
+router.post("/signup", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email, password);
+
+    if (email && password) {
+      const userData = await User.create({ email: email, password: password });
+      console.log(userData);
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.loggedIn = true;
+        res.status(301).redirect("/dashboard");
+      });
+    } else {
+      res.status(402).json({ messsage: "Please provide email and password!" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ messsage: "Error, please try again!" });
+  }
+});
+
+module.exports = router;

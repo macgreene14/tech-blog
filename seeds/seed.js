@@ -11,7 +11,7 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log("\n----- DATABASE SYNCED -----\n");
 
-    await User.bulkCreate(userData);
+    await User.create(userData);
     console.log("\n----- USER SEEDED -----\n");
 
     await Blog.bulkCreate(blogData);

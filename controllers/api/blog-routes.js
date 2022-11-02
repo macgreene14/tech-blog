@@ -2,26 +2,28 @@ const router = require("express").Router();
 const { Blog, User, Comment } = require("../../models");
 
 // GET all blogs for homepage
-router.get("/", async (req, res) => {
+router.post("/comment", async (req, res) => {
   try {
-    const blog_data = await Blog.findAll({
-      include: [
-        {
-          model: User,
-        },
-        { model: Comment },
-      ],
-    });
+    const comment = req.body.comment;
+    const blogId = req.body.blogId;
+    const userId = req.session.user_id; // need to add userId to session token
 
-    // Convert to JSON
-    // const galleries = dbGalleryData.map((gallery) =>
-    //   gallery.get({ plain: true })
-    // );
+    // console.log(comment, blogId, userId);
 
-    res.status(200).json(blog_data);
+    if (blogId && comment && userId) {
+      await Comment.create({
+        content: comment,
+        user_id: userId,
+        blog_id: blogId,
+      });
+
+      res.status(200).replace("/blog/" + blogId);
+    } else {
+      res.status(404).json({ messsage: "Please provide email and password!" });
+    }
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ messsage: "Error, please try again!" });
   }
 });
 

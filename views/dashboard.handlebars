@@ -1,0 +1,7 @@
+<section><h1><strong>Dashboard</strong></h1></section>
+<!-- For each blog, the blog-card partial is used to render the data -->
+{{#each blogs as |blog|}}
+    <a href="/blog/{{id}}">
+        {{>blog-card}}
+    </a>
+{{/each}}
