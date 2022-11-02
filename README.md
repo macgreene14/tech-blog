@@ -2,16 +2,17 @@
 
   ## Description
 
-A simple content management system for posting blogs.
+  A simple content management system for posting blogs.
 
-  ## Video Demonstration 
+  ## Deployed Application
   
-  To Be Uploaded
+  Find the application on Heroku: https://tech-blog-mgreene.herokuapp.com/
 
   ## Table of Contents
   
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Tech Stack](#tech stack)
   - [License](#license)
   - [Contributing](#contributing)  
   - [Tests](#tests)  
@@ -23,7 +24,15 @@ A simple content management system for posting blogs.
     
   ## Usage
   
-Browse existing blog posts, or view personal posts from the dashboard screen. 
+  Browse existing blog posts, or view personal posts from the dashboard screen. 
+
+  ## Tech Stack
+  
+  Server - Express.js
+  Sessions & Cookies - Express-Session
+  Database - MySQL
+  Templating Engine - Handlbars.js
+  Deployment Platform - Heroku
 
   ## License
   
