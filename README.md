@@ -10,13 +10,13 @@
 
   ## Table of Contents
   
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Tech Stack](#tech stack)
-  - [License](#license)
-  - [Contributing](#contributing)  
-  - [Tests](#tests)  
-  - [Questions](#questions)  
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [Technologies](#Technologies)
+  - [License](#License)
+  - [Contributing](#Contributing)  
+  - [Tests](#Tests)  
+  - [Questions](#Questions)  
   
   ## Installation
   
@@ -26,7 +26,7 @@
   
   Browse existing blog posts, or view personal posts from the dashboard screen. 
 
-  ## Tech Stack
+  ## Technologies
   
   Server - Express.js
   Sessions & Cookies - Express-Session
