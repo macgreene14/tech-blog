@@ -1,7 +1,11 @@
-<section><h1><strong>Blog Feed</strong></h1></section>
+<section class="m-2">
+    <h1 class="title is-2">Blog Feed</h1>
+    <h2 class="subtitle is-4">Scroll to Explore the Community Feed</h2>    
+</section>
+
 <!-- For each blog, the blog-card partial is used to render the data -->
 {{#each blogs as |blog|}}
     <a href="/blog/{{id}}">
         {{>blog-card}}
     </a>
-{{/each}}
+{{/each}}    

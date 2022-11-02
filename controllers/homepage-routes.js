@@ -119,7 +119,7 @@ router.get("/signup", async (req, res) => {
 // GET new blog post
 router.get("/new-blog", async (req, res) => {
   try {
-    res.status(200).render("new-blog");
+    res.status(200).render("newblog");
   } catch (err) {
     console.log(err);
     res.status(500).json({ messsage: "Error, please try again!" });

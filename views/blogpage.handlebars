@@ -1,26 +1,22 @@
-<section>
-    <h1>
-        <strong>Blog Post</strong>
-    </h1>
+<section class="m-2">
+    <h1 class="title is-2">Blog Post</h1>
 </section>
 
 {{!-- Render blog post --}}
 
-<div class="card" id="card-div-main" data-blogId={{blog.id}}>
+<div class="card m-3" id="card-div-main" data-blogId={{blog.id}}>
     <div class="card-content">
         <div class="media">
         <div class="media-content">
             <p class="title is-4">{{blog.title}}</p>
-            <p class="subtitle is-6">{{blog.user.email}}</p>
         </div>
         </div>
-
-        <div class="content">
+        <div class="content has-text-weight-medium">
             {{blog.content}}
         <br>
         <br>
-
-        <time datetime="2016-1-1">{{blog.createdAt}}</time>
+          <time datetime="2016-1-1">{{format_date blog.createdAt}}</time>
+          <p class="subtitle is-6">{{blog.user.email}}</p>          
         </div>
     </div>
 </div>   
@@ -28,27 +24,24 @@
 {{!-- Render comments --}}
 {{#each comments as |comment|}}
     <article class="media">
-    <div class="media-content m-3 pl-3">
-        <p class="subtitle is-6">{{user.email}}</p>
+      <div class="media-content m-3">
+          <div class="content has-text-weight-medium ml-6">
+          <p>
+              {{content}}
+              <br>
+          </p>
+            <time datetime="2016-1-1">{{format_date createdAt}}</time>
+            <p class="subtitle is-6">{{user.email}}</p>            
+          </div>
 
-        <div class="content m-3">
-        <p>
-            <strong>{{content}}</strong>
-            <br>
-        </p>
-                <time datetime="2016-1-1">{{createdAt}}</time>
-
-        </div>
-
-    </div>
+      </div>
     </article>
 {{/each}}
 
 
 {{!-- Add a comment --}}
-
 <article class="media">
-  <div class="media-content">
+  <div class="media-content has-text-weight-medium mx-6">
     <div class="field">
       <p class="control">
         <textarea class="textarea" id="comment-input" placeholder="Add a comment..."></textarea>

@@ -7,7 +7,8 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // require handlerbars.js
 const exphbs = require("express-handlebars");
-const hbs = exphbs.create({});
+const helpers = require("./utils/helpers");
+const hbs = exphbs.create({ helpers }); // register custom handlebars helpers
 const path = require("path");
 
 // Sets up the Express App

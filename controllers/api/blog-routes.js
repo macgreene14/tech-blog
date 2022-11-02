@@ -17,9 +17,34 @@ router.post("/comment", async (req, res) => {
         blog_id: blogId,
       });
 
-      res.status(200).replace("/blog/" + blogId);
+      res.status(200).end();
     } else {
       res.status(404).json({ messsage: "Please provide email and password!" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ messsage: "Error, please try again!" });
+  }
+});
+
+router.post("/add", async (req, res) => {
+  try {
+    const title = req.body.title;
+    const content = req.body.content;
+    const userId = req.session.user_id; // need to add userId to session token
+
+    // console.log(comment, blogId, userId);
+
+    if (title && content && userId) {
+      await Blog.create({
+        title: title,
+        content: content,
+        user_id: userId,
+      });
+
+      res.status(200).redirect("/dashboard");
+    } else {
+      res.status(404).json({ messsage: "Please provide title and content!" });
     }
   } catch (err) {
     console.log(err);

@@ -1,11 +1,11 @@
 [
     {
-        "content": "This is a blog comment! This blog is great!",
+        "content": "Exciting to see the comments are working as well! And by the way, Express-Sessions and Bulma were used here as well.",
         "user_id": 1,
         "blog_id": 1
     },
     {
-        "content": "Adding another comment here!",
+        "content": "Really, all of this information is available for free online. Some of my favorites are Fireship and Web Dev Simplified.",
         "user_id": 1,
         "blog_id": 1
     }

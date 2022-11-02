@@ -1,12 +1,12 @@
 [
     {  
-        "title": "My First Blog Post!",
-        "content" : "Hellooo Everyone! This is the content for my first blog post ever!",
+        "title": "My First Post Ever!",
+        "content" : "Just checking out my new blog, created with Express.js and Handlebars.js!",
         "user_id": 1
     },
     {  
-        "title": "My Second Blog Post!",
-        "content" : "It's working!",
+        "title": "My Second Post!",
+        "content" : "It's really amazing what can be implemented with open source javascript libraries. This blog is a great example of the ease of implementation with modern web development.",
         "user_id": 1
     }
 ]

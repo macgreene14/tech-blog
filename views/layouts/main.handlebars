@@ -10,10 +10,10 @@
 </head>
 
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-light" role="navigation" aria-label="main navigation" >
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="./images/Blog-icon.png">
+      <img src="../images/Blog-icon.png">
        &nbsp Home
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -32,13 +32,12 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-success" href="./new-blog">
-            <strong>+ Post</strong>
-          </a>          
+        <div class="buttons">       
           {{#if loggedIn}}
           {{!-- Check if user is logged in--}}
-          {{!-- todo convert logout to post request with js --}}
+          <a class="button is-success" href="./new-blog">
+            <strong>+Post</strong>
+          </a>   
           <a class="button is-light" id="logout-btn">
             Log Out
           </a>
