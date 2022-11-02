@@ -36,7 +36,10 @@ router.get("/blog/:id", async (req, res) => {
     // if user is not logged in, redirect to login
     const loggedIn = req.session.loggedIn;
 
-    if (!loggedIn) {
+    // obtain user_id from session entry to lookup blogs
+    const user_id = req.session.user_id;
+
+    if (!loggedIn || !user_id) {
       res.status(200).redirect("/login");
     }
 
