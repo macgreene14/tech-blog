@@ -16,6 +16,7 @@ commentBtn.addEventListener("click", async (event) => {
 
   if (response.ok) {
     console.log(`Comment added to blog ${blogId}`);
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

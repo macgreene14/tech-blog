@@ -32,7 +32,7 @@ User.init(
       type: DataTypes.CHAR,
       allowNull: false,
       validate: {
-        len: [6],
+        len: [1],
       },
     },
   },
