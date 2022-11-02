@@ -41,6 +41,7 @@ router.get("/blog/:id", async (req, res) => {
 
     if (!loggedIn || !user_id) {
       res.status(200).redirect("/login");
+      return;
     }
 
     // access path param
